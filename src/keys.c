@@ -50,7 +50,7 @@ int crypto_derive_private_key(
     bip32_path_t const *const bip32_path
 ) {
     check_null(bip32_path);
-    uint8_t raw_private_key[PRIVATE_KEY_DATA_SIZE] = {0};
+    uint8_t raw_private_key[PRIVATE_KEY_DATA_SIZE*2] = {0};
 
     cx_curve_t const cx_curve = signature_type_to_cx_curve(derivation_type_to_signature_type(derivation_type));
 
@@ -69,7 +69,7 @@ int crypto_derive_private_key(
             }
 
             // new private_key from raw
-            cx_ecfp_init_private_key(cx_curve, raw_private_key, sizeof(raw_private_key), private_key);
+            cx_ecfp_init_private_key(cx_curve, raw_private_key, PRIVATE_KEY_DATA_SIZE, private_key);
 
 
         } FINALLY {
