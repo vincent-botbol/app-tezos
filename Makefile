@@ -12,7 +12,7 @@ APPNAME = "Tezos Baking"
 else ifeq ($(APP),tezos_wallet)
 APPNAME = "Tezos Wallet"
 endif
-APP_LOAD_PARAMS= --appFlags 0 --curve ed25519 --curve secp256k1 --curve prime256r1 --path "44'/1729'" $(COMMON_LOAD_PARAMS)
+APP_LOAD_PARAMS= --appFlags 0x240 --curve ed25519 --curve secp256k1 --curve prime256r1 --path "44'/1729'" $(COMMON_LOAD_PARAMS)
 
 GIT_DESCRIBE ?= $(shell git describe --tags --abbrev=8 --always --long --dirty 2>/dev/null)
 
@@ -86,7 +86,7 @@ DEFINES   += IO_SEPROXYHAL_BUFFER_SIZE_B=128
 endif
 
 # Enabling debug PRINTF
-DEBUG ?= 0
+DEBUG ?= 1
 ifneq ($(DEBUG),0)
 
         DEFINES += TEZOS_DEBUG

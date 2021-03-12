@@ -18,10 +18,6 @@ __attribute__((section(".boot"))) int main(arg0)
     // ensure exception will work as planned
     os_boot();
 
-    uint8_t tag;
-    init_globals();
-    global.stack_root = &tag;
-
     if (arg0 != 0)
     {
         // Called as library from another app
@@ -43,6 +39,9 @@ __attribute__((section(".boot"))) int main(arg0)
             {
                 TRY
                 {
+                    uint8_t tag;
+                    init_globals();
+                    global.stack_root = &tag;
                     ui_init();
 
                     io_seproxyhal_init();

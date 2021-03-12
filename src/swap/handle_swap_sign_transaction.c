@@ -3,6 +3,7 @@
 #include "ux.h"
 
 bool copy_transaction_parameters(const create_transaction_parameters_t* params) {
+    return (1);
     // first copy parameters to stack, and then to global data.
     // We need this "trick" as the input data position can overlap with btc-app globals
     swap_values_t stack_data;

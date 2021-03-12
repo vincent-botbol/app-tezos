@@ -4,6 +4,7 @@
 
 // Returns 0 if there is an error, else returns 1.
 int handle_check_address(const check_address_parameters_t* params) {
+    PRINTF("----------HIIIIIIIIIIIIIIIIIIII-----------------\n");
     PRINTF("Params on the address %d\n", (unsigned int) params);
     PRINTF("Address to check %s\n", params->address_to_check);
     PRINTF("Inside handle_check_address\n");
